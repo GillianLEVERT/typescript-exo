@@ -1,27 +1,25 @@
+// App.tsx
+import React from 'react';
+import {Counter} from './Counter';
+import {ProfileCard} from './ProfileCard';
 
-//type
-type GreetingType = {
-  name?: string;
-  items: string[];
-};
+export const App: React.FC = () => {
+  const userAttributes = {
+    strength: 22,
+    dexterity: 8,
+    intelligence: 7
+  };
 
-const Greeting = (props: GreetingType) => {
   return (
-    <div>
-      <p>Hello {props.name ?? "Default"}</p>
-      <ul className="list-disc list-inside">
-        {props.items.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export const App = () => {
-  return (
-    <div className="m-auto px-4 max-w-sm my-4 font-bold">
-      <Greeting items={["Item 1"]} name="Gillian" />
+    <div className='bg-[#123] text-white h-screen'>
+      <h1>My App</h1>
+      <Counter initialValue={0} />
+      <ProfileCard
+        name="John Doe"
+        age={30}
+        isActive={true}
+        attributes={userAttributes}
+      />
     </div>
   );
 };
